@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"  />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">ASIH</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+     
+      <li class="nav-item">
+        <a class="nav-link" href="listar">Pacientes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=doctores>Doctores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=personal>Personal</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link disabled" href="farmacia">Farmacia</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1>Asistente Hospitalario</h1> 
+  <p>Te encuentras en el Área de Personal</p> 
+</div>
+<div class="container">
+	<table class="table">
+ <thead>
+  <tr>
+     <th scope="col">Nombre Personal</th>
+     <th scope="col">Apellido Personal</th>
+      <th scope="col">Direccion Personal</th>
+       <th scope="col">Cargo Personal</th>
+    
+  </tr>
+ </thead>
+ <!--tfoot>
+  <tr>
+     <td>Sum</td>
+     <td>$180</td>
+  </tr>
+ </tfoot-->
+ <tbody>
+  <tr th:each="personal: ${personal}">
+     <td th:text="${personal.NOM_PERSONAL}" />
+     <td th:text="${personal.APE_PERSONAL}" />
+       <td th:text="${personal.DIRECCION_PERSONAL}" />
+         <td th:text="${personal.CARGO_PERSONAL}" />
+     <td> <a th:href="@{/formpersonal/} + ${personal.id}" th:text="'Editar'" class="btn btn-primary btn-xs" ></a></td>
+     <td> <a th:href="@{/eliminarpersonal/} + ${personal.id}" th:text="'Eliminar'" class="btn btn-danger btn-xs" onclick="return confirm('Estas seguro?')" ></a></td>
+  </tr>
+ </tbody>
+</table>
+
+<a class="btn btn-primary" th:href="@{/formpersonal}">Crear Personal</a>
+</div>
+</body>
+</html>

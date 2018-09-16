@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/layout :: head"></head>
+</head>
+<body>
+	<div class="container">
+
+
+
+
+<main role="main" class="inner cover">
+        <h1 class="cover-heading">Asistente Hospitario</h1>
+        <p class="lead">Asistente Hospitalario Somos tu mejor Opcion </p>
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-secondary">Conozca mas</a>
+        </p>
+      </main>
+
+
+
+<div class="row">
+          <div class="col-lg-3">
+          	
+            <img class="rounded-circle" th:src="@{/img/paciente.png}" alt="Generic placeholder image" width="140" height="140">
+            <h2>Pacientes</h2>
+            <p>Ten un mejor control de sus PACIENTES con ASIH </p>
+            <p><a class="btn btn-secondary" th:href="@{/listar}" role="button">Ver</a></p>
+          </div><!-- /.col-lg-3 -->
+          <div class="col-lg-3">
+            <img class="rounded-circle" th:src="@{/img/doctor.png}" alt="Generic placeholder image" width="140" height="140">
+            <h2>Doctores</h2>
+            <p>Ten un mejor control de sus DOCTORES con ASIH </p>
+            <p><a class="btn btn-secondary" th:href="@{/doctores}" role="button">Ver</a></p>
+          </div><!-- /.col-lg-3 -->
+          <div class="col-lg-3">
+            <img class="rounded-circle" th:src="@{/img/personal.png}" alt="Generic placeholder image" width="140" height="140">
+            <h2>Personal</h2>
+            <p>Ten un mejor control de sus PERSONAL con ASIH </p>
+            <p><a class="btn btn-secondary" th:href="@{/personal}" role="button">Ver</a></p>
+          </div><!-- /.col-lg-3 -->
+          <div class="col-lg-3">
+            <img class="rounded-circle" th:src="@{/img/medicamento.png}" alt="Generic placeholder image" width="140" height="140">
+            <h2>Medicamento</h2>
+            <p>Ten un mejor control de sus MEDICAMENTOS con ASIH </p>
+            <p><a class="btn btn-secondary" th:href="@{/farmacia}" role="button">Ver</a></p>
+          </div><!-- /.col-lg-3 -->
+        </div>
+
+
+
+
+
+
+</body>
+</html>

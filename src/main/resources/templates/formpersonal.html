@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"  />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">ASIH</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="listar">Pacientes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=doctores>Doctores</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href=personal>Personal</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link disabled" href="farmacia">Farmacia</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="jumbotron text-center">
+  <h1>Asistente Hospitalario</h1> 
+  <p>Te encuentras en el Area de Personal</p> 
+</div>
+
+<div class="container">
+<form th:action="@{/formpersonal}" th:object="${personal}" method="post" >
+	<!-- -->
+
+    	<div class="form-group">
+    	<label for="NOM_PERSONAL">Nombre</label>
+    	<input type="text" class="form-control" id="NOM_PERSONAL" placeholder="Nombre" th:field="*{NOM_PERSONAL}"/>
+    	<small th:if="${#fields.hasErrors('NOM_PERSONAL')}" th:errors="*{NOM_PERSONAL}" class="form-text text-danger"></small>
+  	</div>
+	<div class="form-group">
+    	<label for="APE_PERSONAL">Apellido</label>
+    	<input type="text" class="form-control" id="APE_PERSONAL" placeholder="Apellido" th:field="*{APE_PERSONAL}"/>
+    	<small th:if="${#fields.hasErrors('APE_PERSONAL')}" th:errors="*{APE_PERSONAL}" class="form-text text-danger"></small>
+  	</div>
+  	<div class="form-group">
+    	<label for="DIRECCION_PERSONAL">Direccion</label>
+    	<input type="text" class="form-control" id="DIRECCION_PERSONAL" placeholder="Direccion" th:field="*{DIRECCION_PERSONAL}"/>
+    	<small th:if="${#fields.hasErrors('DIRECCION_PERSONAL')}" th:errors="*{DIRECCION_PERSONAL}" class="form-text text-danger"></small>
+  	</div>
+  	<div class="form-group">
+    	<label for="CARGO_PERSONAL">Cargo</label>
+    	<input type="text" class="form-control" id="CARGO_PERSONAL" placeholder="Cargo" th:field="*{CARGO_PERSONAL}"/>
+    	<small th:if="${#fields.hasErrors('CARGO_PERSONAL')}" th:errors="*{CARGO_PERSONAL}" class="form-text text-danger"></small>
+  	</div>
+  
+  	
+  	<input class="btn btn-primary" type="submit" value="guardar" />
+  	<input type="hidden" id="id" th:field="*{id}">
+</form>
+</div>
+</body>
+</html>

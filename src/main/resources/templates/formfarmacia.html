@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"  />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">ASIH</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="listar">Pacientes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=doctores>Doctores</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href=personal>Personal</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link disabled" href="farmacia">Farmacia</a>
+      </li>
+     
+      
+    </ul>
+  </div>
+</nav>
+<div class="jumbotron text-center">
+  <h1>Asistente Hospitalario</h1> 
+  <p>Te encuentras en el Área de Farmacia</p> 
+</div>
+
+<div class="container">
+<form th:action="@{/formfarmacia}" th:object="${farmacia}" method="post" >
+	<!-- -->
+
+    	<div class="form-group">
+    	<label for="NOM_MEDICAMENTO">Nombre Medicamento</label>
+    	<input type="text" class="form-control" id="NOM_MEDICAMENTOL" placeholder="Nombre Medicamento" th:field="*{NOM_MEDICAMENTO}"/>
+    	<small th:if="${#fields.hasErrors('NOM_MEDICAMENTO')}" th:errors="*{NOM_MEDICAMENTOL}" class="form-text text-danger"></small>
+  	</div>
+	<div class="form-group">
+    	<label for="NOM_LABORATORIO">Nombre Laboratorio</label>
+    	<input type="text" class="form-control" id="NOM_LABORATORIO" placeholder="Nombre Laboratorio" th:field="*{NOM_LABORATORIO}"/>
+    	<small th:if="${#fields.hasErrors('NOM_LABORATORIO')}" th:errors="*{NOM_LABORATORIO}" class="form-text text-danger"></small>
+  	</div>
+  	<div class="form-group">
+    	<label for="EST_MEDICAMENTO">Estado Medicamento</label>
+    	<input type="text" class="form-control" id="EST_MEDICAMENTO" placeholder="Estado Medicamento" th:field="*{EST_MEDICAMENTO}"/>
+    	<small th:if="${#fields.hasErrors('EST_MEDICAMENTO')}" th:errors="*{EST_MEDICAMENTO}" class="form-text text-danger"></small>
+  	</div>
+  	<div class="form-group">
+    	<label for="CANT_MEDICAMENTO">Cantidad Medicamento</label>
+    	<input type="text" class="form-control" id="CANT_MEDICAMENTO" placeholder="Cantidad Medicamento" th:field="*{CANT_MEDICAMENTO}"/>
+    	<small th:if="${#fields.hasErrors('CANT_MEDICAMENTO')}" th:errors="*{CANT_MEDICAMENTO}" class="form-text text-danger"></small>
+  	</div>
+  	
+  
+  	
+  	<input class="btn btn-primary" type="submit" value="Guardar" />
+  	<input type="hidden" id="id" th:field="*{id}">
+</form>
+</div>
+</body>
+</html>

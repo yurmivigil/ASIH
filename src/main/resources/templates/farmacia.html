@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"  />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">ASIH</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+     
+      <li class="nav-item">
+        <a class="nav-link" href="listar">Pacientes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=doctores>Doctores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=personal>Personal</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-link disabled" href="farmacia">Farmacia</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1>Asistente Hospitalario</h1> 
+  <p>Te encuentras en el Área de Farmacia</p> 
+</div>
+<div class="container">
+	<table class="table">
+ <thead>
+  <tr>
+     <th scope="col">Nombre Medicamento</th>
+     <th scope="col">Nombre Laboratorio</th>
+      <th scope="col">Estado de Medicamento</th>
+       <th scope="col">Cantidad Medicamento</th>
+      
+    
+  </tr>
+ </thead>
+ <!--tfoot>
+  <tr>
+     <td>Sum</td>
+     <td>$180</td>
+  </tr>
+ </tfoot-->
+ <tbody>
+  <tr th:each="farmacia: ${farmacia}">
+     <td th:text="${farmacia.NOM_MEDICAMENTO}" />
+     <td th:text="${farmacia.NOM_LABORATORIO}" />
+     <td th:text="${farmacia.EST_MEDICAMENTO}" />
+     <td th:text="${farmacia.CANT_MEDICAMENTO}" />
+     <td> <a th:href="@{/formfarmacia/} + ${farmacia.id}" th:text="'Editar'" class="btn btn-primary btn-xs" ></a></td>
+     <td> <a th:href="@{/eliminarfarmacia/} + ${farmacia.id}" th:text="'Eliminar'" class="btn btn-danger btn-xs" onclick="return confirm('Estas seguro?')" ></a></td>
+  </tr>
+ </tbody>
+</table>
+
+<a class="btn btn-primary" th:href="@{/formfarmacia}">Crear Medicamento</a>
+</div>
+</body>
+</html>
